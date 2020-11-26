@@ -24,8 +24,8 @@ public class CardDeck : MonoBehaviour
         int newChance = 0;
         foreach (var condition in conditions)
         {
-            if (condition.resource.value >= condition.fromResourceNumber &&
-                condition.resource.value <= condition.toResourceNumber)
+            if (condition.resource.Value >= condition.fromResourceNumber &&
+                condition.resource.Value <= condition.toResourceNumber)
             {
                 newChance += condition.trueChance;
             }

@@ -15,16 +15,18 @@ public class Card : MonoBehaviour
 
     private void Start()
     {
-        changeText();
+        
     }
 
     public void OnLeftEvent()
     {
+        Destroy(gameObject);
         Debug.Log("Right");
     }
 
     public void OnRightEvent()
     {
+        Destroy(gameObject);
         Debug.Log("Left");
     }
 
@@ -33,24 +35,24 @@ public class Card : MonoBehaviour
     {
         foreach (var resourceChange in reaction.resourceChanges)
         {
-            resourceChange.resource.value += resourceChange.change;
+            resourceChange.resource.Value += resourceChange.change;
         }
     }
     
     
-    public void changeTextRight()
+    public void СhangeTextRight()
     {
-        questionText.text = question;
+        questionText.text = onRightReaction.textReaction;
     }
 
-    public void changeTextLeft()
+    public void СhangeTextLeft()
     {
         questionText.text = onLeftReaction.textReaction;
     }
 
-    public void changeText()
+    public void СhangeText()
     {
-        questionText.text = onRightReaction.textReaction;
+        questionText.text = question;
     }
 }
 
