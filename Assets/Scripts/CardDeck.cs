@@ -6,9 +6,8 @@ public class CardDeck : MonoBehaviour
 {
     public List<Condition> conditions;
     public List<Card> cards;
-
+    public bool Turn;
     public int chance;
-    // Start is called before the first frame update
     void Start()
     {
         if (conditions.Count != 0)
@@ -20,7 +19,7 @@ public class CardDeck : MonoBehaviour
         }
     }
 
-    public void CalculateChance()
+    public void CalculateChance() //Меняем шанс выпадания деки в зависимости от ресурсов
     {
         int newChance = 0;
         foreach (var condition in conditions)
@@ -31,7 +30,6 @@ public class CardDeck : MonoBehaviour
                 newChance += condition.trueChance;
             }
         }
-
         chance = newChance;
     }
 }

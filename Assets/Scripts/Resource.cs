@@ -23,7 +23,7 @@ public class Resource : MonoBehaviour
     {
         foreach (var deck in decks)
         {
-            //deck.CheckResource();
+            deck.CalculateChance();
         }
     }
 }
