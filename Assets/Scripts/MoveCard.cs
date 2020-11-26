@@ -15,7 +15,6 @@ public class MoveCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     private Card _card;
     private void Start()
     {
-        // _baseRt = GameObject.FindWithTag("base").GetComponent<RectTransform>(); // TODO может что-то не сработать
         _selfRt = GetComponent<RectTransform>();
         _selfStartPosition = transform.position;
         _card = GetComponent<Card>();

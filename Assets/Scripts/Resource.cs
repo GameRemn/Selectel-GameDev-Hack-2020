@@ -6,27 +6,20 @@ using UnityEngine.UI;
 public class Resource : MonoBehaviour
 {
     public List<CardDeck> decks;
-    public Types resourceType;
+    public float colorChangeSpeed;
     
     [SerializeField]
     [Range(0, 100)]
     private int value;
-    
-    private Text _text;
 
-    public enum Types
-    {
-        Cityzenry,
-        Slaves,
-        Army,
-        Money
-    }
-    
+    private Image _image;
+
     public int Value
     {
         get
         {
-            _text.text = resourceType + ": " + value;
+            // _text.text = value.ToString();
+            ChangeColorByResourceValue(value);
             return value;
         }
         set
@@ -42,11 +35,32 @@ public class Resource : MonoBehaviour
         }
     }
 
+    private IEnumerator ChangeToColor(Color color, float localColorChangeSpeed)
+    {
+        while (_image.color != color)
+        {
+            _image.color = Color.Lerp(_image.color, color, localColorChangeSpeed);
+            yield return null;
+        }
+    }
+
+    private void ChangeColorByResourceValue(int value)
+    {
+        if (value >= 0 && value <= 50)
+        {
+            StartCoroutine(ChangeToColor(Color.Lerp(Color.red, Color.yellow, (float)value/50), colorChangeSpeed));
+        }
+        else if (value > 50 && value <= 100)
+        {
+            StartCoroutine(ChangeToColor(Color.Lerp(Color.yellow, Color.green, (float)(value-50)/50), colorChangeSpeed));
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        _text = GetComponent<Text>();
-        _text.text = resourceType + ": " + value;
+        _image = GetComponent<Image>();
+        ChangeColorByResourceValue(Value);
     }
 
     // Update is called once per frame
