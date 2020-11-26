@@ -29,24 +29,7 @@ static class ChanceCalculator
     
     public static Card SelectByChance(List<Card> list)
     {
-        int chanceSum = 0;
-        foreach (var element in list)
-        {
-            chanceSum += element.chance;
-        }
-
-        int elementChance = Random.Range(0, chanceSum);
-        foreach (var element in list)
-        {
-            if (elementChance < element.chance)
-            {
-                return element;
-            }
-            else
-            {
-                elementChance -= element.chance;
-            }
-        }
-        return list[0];
+        int elementChance = Random.Range(0, list.Count);
+        return list[elementChance];
     }
 }

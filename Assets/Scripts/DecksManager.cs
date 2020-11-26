@@ -8,12 +8,13 @@ public class GameManager : MonoBehaviour
     public Queue<Card> cardQueue;
     public CardDeck nowDeck;
     public Card nowCard;
-    // Start is called before the first frame update
+    public RectTransform baseRt;
+
     void Start()
     {
         
     }
-    // Update is called once per frame
+    
     void Update()
     {
         
@@ -22,5 +23,11 @@ public class GameManager : MonoBehaviour
     public CardDeck SelectCardDeck()
     {
         return ChanceCalculator.SelectByChance(decks);
+    }
+
+    public void CreateCard(Card newCardPrefab) //Перенести спаун в отдельный класс
+    {
+        var newCard = Instantiate(newCardPrefab, base.transform);
+        //newCard.GetComponent<MoveCard>().baseRt = base.transform;
     }
 }

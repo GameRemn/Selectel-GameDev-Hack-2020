@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 
 public class Card : MonoBehaviour
 {
@@ -11,24 +12,45 @@ public class Card : MonoBehaviour
     public ChangeReaction onRightReaction;
     public ChangeReaction onLeftReaction;
     [Space(20)] public Text questionText;
-    public Text rightText;
-    public Text leftText;
 
     private void Start()
     {
-        questionText.text = question;
-        rightText.text = onRightReaction.textReaction;
-        leftText.text = onLeftReaction.textReaction;
+        changeText();
     }
 
     public void OnLeftEvent()
     {
-        
+        Debug.Log("Right");
     }
 
     public void OnRightEvent()
     {
-        
+        Debug.Log("Left");
+    }
+
+    
+    public void AnsverEvent(ChangeReaction reaction)
+    {
+        foreach (var resourceChange in reaction.resourceChanges)
+        {
+            resourceChange.resource.value += resourceChange.change;
+        }
+    }
+    
+    
+    public void changeTextRight()
+    {
+        questionText.text = question;
+    }
+
+    public void changeTextLeft()
+    {
+        questionText.text = onLeftReaction.textReaction;
+    }
+
+    public void changeText()
+    {
+        questionText.text = onRightReaction.textReaction;
     }
 }
 
