@@ -6,8 +6,9 @@ public class CardDeck : MonoBehaviour
 {
     public List<Condition> conditions;
     public List<Card> cards;
-    public bool Turn;
+    public bool turn;
     public int chance;
+    public DecksManager decksManager;
     void Start()
     {
         if (conditions.Count != 0)
@@ -16,6 +17,21 @@ public class CardDeck : MonoBehaviour
             {
                 condition.resource.decks.Add(this);
             }
+        }
+    }
+
+    public void SelectCardAndAddToQueue()
+    {
+        if (turn)
+        {
+            foreach (var card in cards)
+            {
+                decksManager.AddToQueue(card);
+            }
+        }
+        else
+        {
+            decksManager.AddToQueue(ChanceCalculator.SelectByChance(cards));
         }
     }
 

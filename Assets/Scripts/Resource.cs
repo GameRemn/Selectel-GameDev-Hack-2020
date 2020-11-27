@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Resource : MonoBehaviour
 {
+    public ResourceType type;
     public List<CardDeck> decks;
     public float colorChangeSpeed;
     
@@ -75,5 +76,13 @@ public class Resource : MonoBehaviour
         {
             deck.CalculateChance();
         }
+    }
+
+    public enum ResourceType
+    {
+        Рабы,
+        Граждане,
+        Армия,
+        Деньги
     }
 }

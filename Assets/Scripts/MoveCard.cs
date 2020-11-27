@@ -13,6 +13,7 @@ public class MoveCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     private Vector3 _dragStartPosition;
     private Vector3 _selfStartPosition;
     private Card _card;
+    private Vector3 _mouseStartPositon;
     private void Start()
     {
         _selfRt = GetComponent<RectTransform>();
@@ -23,12 +24,15 @@ public class MoveCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public void OnBeginDrag(PointerEventData eventData)
     {
         _dragStartPosition = transform.position;
+        _mouseStartPositon = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector3(mousePos.x, transform.position.y, 0); // TODO смещение
+        
+        transform.position = new Vector3(mousePos.x - (_mouseStartPositon.x - _selfStartPosition.x), transform.position.y, 0);
+
         if (_dragStartPosition.x > transform.position.x) // Left
         {
             _card.СhangeTextLeft();
@@ -52,8 +56,6 @@ public class MoveCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         Vector3 selfBottomLeft = corners[0];
         Vector3 selfTopRight = corners[2];
         
-        // Debug.Log("Base left: " + baseBottomLeft);
-        // Debug.Log("Self left: " + selfBottomLeft);
         if (_dragStartPosition.x > transform.position.x) // Left
         {
             if (selfTopRight.x > baseBottomLeft.x)

@@ -11,7 +11,6 @@ static class ChanceCalculator
         {
             chanceSum += element.chance;
         }
-
         int elementChance = Random.Range(0, chanceSum);
         foreach (var element in list)
         {
@@ -24,7 +23,7 @@ static class ChanceCalculator
                 elementChance -= element.chance;
             }
         }
-        return list[0];
+        return null;
     }
     
     public static Card SelectByChance(List<Card> list)

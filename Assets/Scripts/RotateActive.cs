@@ -14,7 +14,7 @@ public class RotateActive : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.rotation.eulerAngles.y > 90f)
+        if (transform.rotation.eulerAngles.y < 90f)
         {
             obj.SetActive(true);
         }

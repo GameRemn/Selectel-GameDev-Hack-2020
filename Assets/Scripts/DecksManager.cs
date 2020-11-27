@@ -6,36 +6,67 @@ using UnityEngine.UI;
 public class DecksManager : MonoBehaviour
 {
     public List<CardDeck> decks;
-    public Queue<Card> cardQueue;
+    public List<Card> cardQueue;
     public CardDeck nowDeck;
     public CardDeck startDeck;
     public CardCreator cardCreator;
+    public List<Resource> resources;
     void Start()
     {
+        foreach (var deck in decks)
+        {
+            deck.decksManager = this;
+        }
         if (startDeck)
         {
+            startDeck.decksManager = this;
             nowDeck = startDeck;
         }
         else
         {
             nowDeck = ChanceCalculator.SelectByChance(decks);
         }
-
-        cardCreator.CreateCard(ChanceCalculator.SelectByChance(nowDeck.cards));
-    }
-    
-    void Update()
-    {
-        
+        nowDeck.SelectCardAndAddToQueue();
+        CreateNextCard();
     }
 
-    public CardDeck SelectCardDeck()
+    public void AddToQueue(Card card)
     {
-        return ChanceCalculator.SelectByChance(decks);
+        cardQueue.Add(card);
     }
 
-    public void CreateCard(Card newCardPrefab) //Перенести спаун в отдельный класс
+    public void CreateNextCard(Card card = null)
     {
-        
+        if (card)
+        {
+            Debug.Log("Карта вне очереди");
+            cardCreator.CreateCard(card);
+        }
+        else
+        {
+            if (cardQueue.Count == 0)
+            {
+                Debug.Log("Нет карт в очереди");
+                nowDeck = ChanceCalculator.SelectByChance(decks);
+                nowDeck.SelectCardAndAddToQueue();
+                CreateNextCard();
+            }
+            else
+            {
+                cardCreator.CreateCard(cardQueue[0]);
+                cardQueue.RemoveAt(0);
+            }
+        }
+    }
+
+    public Resource GetResource(Resource.ResourceType type)
+    {
+        foreach (var resource in resources)
+        {
+            if (resource.type == type)
+                return resource;
+        }
+
+        return null;
     }
 }

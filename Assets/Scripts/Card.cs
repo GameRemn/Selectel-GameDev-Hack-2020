@@ -12,7 +12,7 @@ public class Card : MonoBehaviour
     public ChangeReaction onRightReaction;
     public ChangeReaction onLeftReaction;
     [Space(20)] public Text questionText;
-
+    public DecksManager decksManager;
     private void Start()
     {
         
@@ -20,14 +20,13 @@ public class Card : MonoBehaviour
 
     public void OnLeftEvent()
     {
-        Destroy(gameObject);
-        Debug.Log("Right");
+        AnsverEvent(onLeftReaction);
+        
     }
 
     public void OnRightEvent()
     {
-        Destroy(gameObject);
-        Debug.Log("Left");
+        AnsverEvent(onRightReaction);
     }
 
     
@@ -35,8 +34,18 @@ public class Card : MonoBehaviour
     {
         foreach (var resourceChange in reaction.resourceChanges)
         {
-            resourceChange.resource.Value += resourceChange.change;
+            decksManager.GetResource(resourceChange.resourceType).Value += resourceChange.change;
         }
+
+        if (reaction.nextCard)
+        {
+            decksManager.CreateNextCard(reaction.nextCard);
+        }
+        else
+        {
+            decksManager.CreateNextCard();
+        }
+        Destroy(gameObject);
     }
     
     
@@ -59,7 +68,7 @@ public class Card : MonoBehaviour
 [System.Serializable]
 public class ResourceChange
 {
-    public Resource resource;
+    public Resource.ResourceType resourceType;
     public int change;
 }
 [System.Serializable]
