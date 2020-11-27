@@ -111,6 +111,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1609000408659726691, guid: c5aa9f6c66fa95e438334c49f40c0917, type: 3}
+      propertyPath: onLeftReaction.resourceChanges.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609000408659726691, guid: c5aa9f6c66fa95e438334c49f40c0917, type: 3}
+      propertyPath: onRightReaction.resourceChanges.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609000408659726691, guid: c5aa9f6c66fa95e438334c49f40c0917, type: 3}
       propertyPath: question
       value: "\u0422\u0430\u0439\u043D\u0430\u044F \u0441\u043B\u0443\u0436\u0431\u0430
         \u0434\u043E\u043D\u0435\u0441\u043B\u0430, \u0447\u0442\u043E \u043D\u0430
@@ -125,14 +133,6 @@ PrefabInstance:
       propertyPath: onRightReaction.textReaction
       value: "\u0421\u043E\u0431\u0440\u0430\u0442\u044C \u0442\u0430\u0439\u043D\u044B\u0439
         \u0441\u043E\u0432\u0435\u0442."
-      objectReference: {fileID: 0}
-    - target: {fileID: 1609000408659726691, guid: c5aa9f6c66fa95e438334c49f40c0917, type: 3}
-      propertyPath: onLeftReaction.resourceChanges.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1609000408659726691, guid: c5aa9f6c66fa95e438334c49f40c0917, type: 3}
-      propertyPath: onRightReaction.resourceChanges.Array.size
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1609000408659726691, guid: c5aa9f6c66fa95e438334c49f40c0917, type: 3}
       propertyPath: onLeftReaction.resourceChanges.Array.data[0].change
@@ -178,6 +178,10 @@ PrefabInstance:
       propertyPath: onRightReaction.resourceChanges.Array.data[1].resourceType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1609000408659726691, guid: c5aa9f6c66fa95e438334c49f40c0917, type: 3}
+      propertyPath: onLeftReaction.nextCard
+      value: 
+      objectReference: {fileID: 6314161952446550079, guid: fc31fa016f714152782c3e54885b595e, type: 3}
     - target: {fileID: 6887461088584985386, guid: c5aa9f6c66fa95e438334c49f40c0917, type: 3}
       propertyPath: m_IsActive
       value: 0

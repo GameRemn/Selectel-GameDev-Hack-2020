@@ -167,6 +167,10 @@ PrefabInstance:
       propertyPath: onRightReaction.resourceChanges.Array.data[2].resourceType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1609000408659726691, guid: c5aa9f6c66fa95e438334c49f40c0917, type: 3}
+      propertyPath: onRightReaction.nextCard
+      value: 
+      objectReference: {fileID: 8794995822786624109, guid: 78c9bcb8f5beda12aade0d54e7c566d3, type: 3}
     - target: {fileID: 6887461088584985386, guid: c5aa9f6c66fa95e438334c49f40c0917, type: 3}
       propertyPath: m_IsActive
       value: 0

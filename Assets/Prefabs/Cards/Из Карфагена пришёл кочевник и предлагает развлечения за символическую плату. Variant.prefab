@@ -100,6 +100,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1609000408659726691, guid: c5aa9f6c66fa95e438334c49f40c0917, type: 3}
+      propertyPath: onLeftReaction.resourceChanges.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609000408659726691, guid: c5aa9f6c66fa95e438334c49f40c0917, type: 3}
+      propertyPath: onRightReaction.resourceChanges.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609000408659726691, guid: c5aa9f6c66fa95e438334c49f40c0917, type: 3}
       propertyPath: question
       value: "\u0418\u0437 \u041A\u0430\u0440\u0444\u0430\u0433\u0435\u043D\u0430
         \u043F\u0440\u0438\u0448\u0451\u043B \u043A\u043E\u0447\u0435\u0432\u043D\u0438\u043A
@@ -117,14 +125,6 @@ PrefabInstance:
       propertyPath: onRightReaction.textReaction
       value: "\u0421\u043E\u0433\u043B\u0430\u0441\u0438\u0442\u044C\u0441\u044F
         \u0438 \u0432\u043F\u0443\u0441\u0442\u0438\u0442\u044C \u0432 \u0433\u043E\u0440\u043E\u0434."
-      objectReference: {fileID: 0}
-    - target: {fileID: 1609000408659726691, guid: c5aa9f6c66fa95e438334c49f40c0917, type: 3}
-      propertyPath: onLeftReaction.resourceChanges.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1609000408659726691, guid: c5aa9f6c66fa95e438334c49f40c0917, type: 3}
-      propertyPath: onRightReaction.resourceChanges.Array.size
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1609000408659726691, guid: c5aa9f6c66fa95e438334c49f40c0917, type: 3}
       propertyPath: onLeftReaction.resourceChanges.Array.data[1].change
@@ -166,6 +166,10 @@ PrefabInstance:
       propertyPath: onRightReaction.resourceChanges.Array.data[2].resourceType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1609000408659726691, guid: c5aa9f6c66fa95e438334c49f40c0917, type: 3}
+      propertyPath: onLeftReaction.nextCard
+      value: 
+      objectReference: {fileID: 8794995822786624109, guid: 78c9bcb8f5beda12aade0d54e7c566d3, type: 3}
     - target: {fileID: 6887461088584985386, guid: c5aa9f6c66fa95e438334c49f40c0917, type: 3}
       propertyPath: m_IsActive
       value: 0
