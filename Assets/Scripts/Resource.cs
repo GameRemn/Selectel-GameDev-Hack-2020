@@ -25,7 +25,7 @@ public class Resource : MonoBehaviour
         {
             if (value > 100 || value < 0)
             {
-                Debug.Log("End game");
+                GetComponent<SceneLoader>().LoadScene("Death");
                 // @TODO вызов метода для окончания игры с проигрышем
             } else if (value >= 0 && value <= 100)
             {
