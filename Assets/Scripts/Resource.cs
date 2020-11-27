@@ -19,8 +19,6 @@ public class Resource : MonoBehaviour
     {
         get
         {
-            // _text.text = value.ToString();
-            ChangeColorByResourceValue(value);
             return value;
         }
         set
@@ -32,6 +30,7 @@ public class Resource : MonoBehaviour
             } else if (value >= 0 && value <= 100)
             {
                 this.value = value;
+                ChangeColorByResourceValue(value);
             }
         }
     }
